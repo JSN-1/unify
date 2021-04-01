@@ -1,7 +1,7 @@
 ## Howto build latest Openvpn for mips64
 
 ### Download debian wheezy qcow image and kernel
-https://people.debian.org/~aurel32/qemu/mips/debian_wheezy_mips_standard.qcow2
+https://people.debian.org/~aurel32/qemu/mips/debian_wheezy_mips_standard.qcow2  
 https://people.debian.org/~aurel32/qemu/mips/vmlinux-3.2.0-4-5kc-malta
 
 ### Install qemu-system-mips64
