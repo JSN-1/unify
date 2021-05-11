@@ -24,9 +24,15 @@ ssh root@localhost -p 1810
 #### Setup QEMU Build Environment
 Compiling requires you to install build-essentials. Debian wheezy has moved to the debian archive so you must update the sources.list Note that you will not be able to authenticate the pacakges from the debian archive due to an expired certificate.
 ~~~
-mv /etc/apt/sources.list /etc/apt/sources_old.list
-echo "deb http://archive.debian.org/debian wheezy main" > /etc/apt/sources.list
-echo "deb-src http://archive.debian.org/debian wheezy main" >> /etc/apt/sources.list
+echo "deb [trusted=yes] http://archive.debian.org/debian wheezy main
+deb-src [trusted=yes] http://archive.debian.org/debian wheezy main
+deb [trusted=yes] http://security.debian.org/ wheezy/updates main
+deb-src [trusted=yes] http://security.debian.org/ wheezy/updates main
+deb [trusted=yes] http://archive.debian.org/debian wheezy-updates main
+deb-src [trusted=yes] http://archive.debian.org/debian wheezy-updates main" > /etc/apt/sources.list
+
+echo "Acquire::Check-Valid-Until false;" > /etc/apt/apt.conf
+
 apt-get update
 apt-get install build-essential
 ~~~
